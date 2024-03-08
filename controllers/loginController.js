@@ -24,7 +24,13 @@ exports.login = async (req, res) => {
     // Set token as a cookie
     res.cookie('token', token, { httpOnly: true });
 
-    res.json({ success: true, message: 'Login successful' });
+    const data= {
+      username: user?.username,
+      email: user?.email,
+      profilePicUrl: user?.profilePicUrl
+    }
+
+    res.json({ success: true, message: 'Login successful', data});
   } catch (error) {
     console.error(error);
     res.status(500).json({ success: false, message: 'Internal server error' });
