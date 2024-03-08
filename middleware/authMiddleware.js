@@ -7,8 +7,11 @@ module.exports = (req, res, next) => {
   // Check for token in cookies
   const tokenFromCookie = req.cookies.token;
 
+  console.log('Token from header:', tokenFromHeader);
+  console.log('Token from cookie:', tokenFromCookie);
+
   // Check if token exists in either header or cookie
-  const token = tokenFromHeader || tokenFromCookie;
+  const token = tokenFromCookie;
 
   if (!token) {
     return res.status(401).json({ success: false, message: 'Access denied, token missing' });

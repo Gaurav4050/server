@@ -23,8 +23,13 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  credentials: true, // Allow cookies
+};
+
 // middleware
-app.use(CORS());
+app.use(CORS(corsOptions));
 app.use("/", express.static(path.join(__dirname, "public")));
 app.use(
   fileUpload({
