@@ -85,14 +85,6 @@ app.post("/upload", async (req, res) => {
       use_filename: true,
       unique_filename: false,
     });
-    // if (result.url) {
-    //   res.render("media", {
-    //     img: result.url,
-    //     name: uploadFile.name.replace(/.jpeg|.jpg|.png|.webp/gi, ""),
-    //   });
-    // } else {
-    //   res.render("/upload");
-    // }
     return res.json({ success: true, message: 'Image uploaded successfully', result });
   });
   
