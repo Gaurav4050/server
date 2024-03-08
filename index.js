@@ -67,6 +67,9 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something broke!');
 });
 
+app.get("/", (req, res) => {
+    res.json("Server is running");
+});
 
 // Upload endpoint
 app.post("/upload", async (req, res) => {
