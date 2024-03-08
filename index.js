@@ -10,6 +10,7 @@ const postsRouter = require('./router/post');
 const fileUpload = require("express-fileupload");
 const cloudinary = require('cloudinary').v2;
 const path = require("path");
+const CORS = require('cors');
 dotenv.config();
 
 const app = express();
@@ -23,6 +24,7 @@ cloudinary.config({
 });
 
 // middleware
+app.use(CORS());
 app.use("/", express.static(path.join(__dirname, "public")));
 app.use(
   fileUpload({
