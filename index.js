@@ -37,6 +37,16 @@ const corsOptions = {
     ],
     credentials: true, // Allow cookies
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "Set-Cookie",
+      "x-app-type",
+      "x-hashed-id",
+      "x-request-id",
+      "x-request-token",
+      "x-fingerprint-id",
+    ],
 };
 
 app.use(cors(corsOptions));
