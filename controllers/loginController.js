@@ -22,14 +22,14 @@ exports.login = async (req, res) => {
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
     console.log(token);
     // Set token as a cookie
-    res.cookie('token', token,
-     {
-      //  httpOnly: true
-      sameSite: 'none',
+    // res.cookie('token', token,
+    //  {
+    //   //  httpOnly: true
+    //   sameSite: 'none',
 
-       }
+    //    }
      
-     );
+    //  );
 
     const data= {
       username: user?.username,
@@ -37,7 +37,14 @@ exports.login = async (req, res) => {
       profilePicUrl: user?.profilePicUrl
     }
 
-    res.json({ success: true, message: 'Login successful', data});
+    // res.json({ success: true, message: 'Login successful', data});
+    res.cookie('logintoken', token, {
+							expires: new Date(Date.now() + 256987000000),
+							// httpOnly:true,
+							secure: true,
+							sameSite: 'none',
+						}).status(200).json({ success: true, message: 'Login successful', data});
+            
   } catch (error) {
     console.error(error);
     res.status(500).json({ success: false, message: 'Internal server error' });
