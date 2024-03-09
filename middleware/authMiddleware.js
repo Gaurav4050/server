@@ -8,6 +8,9 @@ module.exports = (req, res, next) => {
   const tokenFromCookie = req.cookies.token;
   const cookieToken= req?.headers?.cookies;
 
+  console.log('Cookie:', req.cookies);
+  console.log('Header:', req.headers);
+
   console.log('Cookie token:', cookieToken);
 
   console.log('Token from header:', tokenFromHeader);
