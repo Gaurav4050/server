@@ -16,6 +16,15 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 8000;
 
+// CORS configuration
+const corsOptions = {
+  origin: true, // Reflect the request origin
+  credentials: true, // Allow cookies
+};
+
+app.use(cors(corsOptions));
+
+
 // Configure Cloudinary
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -23,13 +32,6 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-// CORS configuration
-const corsOptions = {
-    origin: true, // Reflect the request origin
-    credentials: true, // Allow cookies
-};
-
-app.use(cors(corsOptions));
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
