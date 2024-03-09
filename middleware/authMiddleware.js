@@ -5,7 +5,7 @@ module.exports = (req, res, next) => {
   const tokenFromHeader = req.headers.authorization;
 
   // Check for token in cookies
-  const tokenFromCookie = req.cookies.token;
+  const tokenFromCookie = req.cookies.logintoken;
   const cookieToken= req?.headers?.cookies;
 
   console.log('Cookie:', req.cookies);
