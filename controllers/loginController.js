@@ -22,7 +22,14 @@ exports.login = async (req, res) => {
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
     console.log(token);
     // Set token as a cookie
-    res.cookie('token', token, { httpOnly: true });
+    res.cookie('token', token,
+     {
+      //  httpOnly: true
+      sameSite: 'none',
+
+       }
+     
+     );
 
     const data= {
       username: user?.username,
