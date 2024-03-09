@@ -25,28 +25,8 @@ cloudinary.config({
 
 // CORS configuration
 const corsOptions = {
-    origin: [
-      // 'http://localhost:3000',
-      //  'https://65ebf585aaf1ae6165f268df--aquamarine-kulfi-a210f7.netlify.app'
-      "http://localhost:3000",
-      "http://192.168.43.100:3000",
-      /google\.com$/,
-      /localhost/,
-      "https://65ebf585aaf1ae6165f268df--aquamarine-kulfi-a210f7.netlify.app",
-      /65ebf585aaf1ae6165f268df--aquamarine-kulfi-a210f7.netlify.app/,
-    ],
+    origin: true, // Reflect the request origin
     credentials: true, // Allow cookies
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
-    allowedHeaders: [
-      "Content-Type",
-      "Authorization",
-      "Set-Cookie",
-      "x-app-type",
-      "x-hashed-id",
-      "x-request-id",
-      "x-request-token",
-      "x-fingerprint-id",
-    ],
 };
 
 app.use(cors(corsOptions));
