@@ -5,7 +5,7 @@ const User = require('../models/User');
 exports.login = async (req, res) => {
   try {
     // Find user by username
-    const user = await User.findOne({ username: req.body.username });
+    const user = await User.findOne({ email: req.body.email });
     
     // Check if user exists
     if (!user) {
