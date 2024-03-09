@@ -24,7 +24,7 @@ cloudinary.config({
 });
 
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: ['http://localhost:3000', 'https://65ebf585aaf1ae6165f268df--aquamarine-kulfi-a210f7.netlify.app/',],
   credentials: true, // Allow cookies
 };
 
